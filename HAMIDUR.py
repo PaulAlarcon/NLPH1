@@ -1,3 +1,4 @@
+
 def tokenize(all_texts_lines):
     word_map = {}
     for l in all_texts_lines:
@@ -18,8 +19,15 @@ def read(file):
         newFile.append("<s> " + l.rstrip().lstrip().lower() + " </s>")
     return newFile
 
+def write(updatedLines, newFileName):
+    f = open(newFileName, "w+")
+    for l in updatedLines:
+        f.write(l+"\n")
+
 
 updatedLines = read("test.txt")
 updatedMap = tokenize(updatedLines)
+write(updatedLines, "mod")
+
 print("Unique", len(updatedMap))
 print("Total tokens", sum(updatedMap.values()))
