@@ -30,3 +30,11 @@ for key in map_count.keys():
 new_map_count = tokenize(t_processed)
 
 print(len(t_processed.split()))
+
+def read(file):
+    f = open(file)
+    all = f.readlines()
+    newFile = []
+    for l in all:
+        newFile.append("<s> " + l.rstrip().lstrip().lower() + " </s>")
+    return newFile
